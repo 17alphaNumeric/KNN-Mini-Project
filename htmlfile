@@ -1,0 +1,63 @@
+from IPython.display import display, HTML
+
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNN Image Generation</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pyodide/0.17.0/full/pyodide.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td> Ng </td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="0" id="testInput1"/> </td>
+            <td> Pci </td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="175" id="testInput2"/> </td>
+            <td> H </td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="0" id="testInput3"/> </td>
+            <td> Wp </td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="0" id="testInput4"/> </td>
+            <td> Ph</td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="300" id="testInput5"/> </td>
+        </tr>
+        <tr>
+            <td> Ox </td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="24" id="testInput6"/> </td>
+            <td>Ow</td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="7" id="testInput7"/> </td>
+            <td> Hbt</td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="1459" id="testInput8"/> </td>
+            <td> Wm</td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="12" id="testInput9"/> </td>
+            <td> Wr</td>
+            <td> <input type="text" style="border:3px solid #87CEEB;" value="308750" id="testInput10"/> </td>
+        </tr>
+    </table>
+    <button onclick="generateImages()">Generate Images</button>
+    <div id="imageContainer"></div>
+
+    <script type="text/javascript">
+        async function generateImages() {
+            // Get input values from HTML input fields
+            const c_values = [];
+            for (let i = 1; i <= 10; i++) {
+                c_values.push(parseFloat(document.getElementById("testInput" + i).value));
+            }
+            
+            // Print input values to console
+            console.log("Input values:", c_values);
+
+            // Placeholder for image generation - simply adds an image to the container
+            var img = document.createElement('img');
+            img.src = 'https://github.com/17alphaNumeric/KNN-Mini-Project/blob/main/dataset_Train1.csv'; // Use a placeholder image URL
+            document.getElementById('imageContainer').appendChild(img);
+        }
+    </script>
+</body>
+</html>
+"""
+
+display(HTML(html_content))
